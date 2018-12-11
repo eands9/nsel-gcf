@@ -34,14 +34,14 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000 + 000 + 000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7X-eg-0tV">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 + 00 + 00 + 00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7X-eg-0tV">
                                                 <rect key="frame" x="0.0" y="0.0" width="298" height="156"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="156" id="Eob-Uf-AIH"/>
                                                     <constraint firstAttribute="width" constant="298" id="qo2-OR-R5P"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -120,6 +120,7 @@
                     </view>
                     <connections>
                         <outlet property="answerTxt" destination="KYe-H6-QLi" id="Dzp-aA-aLM"/>
+                        <outlet property="checkBtn" destination="oTe-Ik-8xI" id="IIF-Mw-EtU"/>
                         <outlet property="progressLbl" destination="th9-e1-kU2" id="Fq4-Qy-a2x"/>
                         <outlet property="questionLabel" destination="x7X-eg-0tV" id="5Vl-mo-biq"/>
                         <outlet property="timerLbl" destination="fMU-de-pXf" id="DKS-KC-gSY"/>

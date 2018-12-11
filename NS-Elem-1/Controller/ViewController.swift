@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var questionNumberLbl: UILabel!
     @IBOutlet weak var timerLbl: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var checkBtn: UIButton!
     
     var randomPick: Int = 0
     var correctAnswers: Int = 0
@@ -26,6 +27,7 @@ class ViewController: UIViewController {
     var randomNumA : Int = 0
     var randomNumB : Int = 0
     var randomNumC : Int = 0
+    var randomNumD : Int = 0
     
     var firstNum : Int = 0
     var secondNum : Int = 0
@@ -54,19 +56,22 @@ class ViewController: UIViewController {
     
     func askQuestion(){
         //3 digit questions starting at 100
-        randomNumA = Int.random(in: 100 ..< 1001)
-        randomNumB = Int.random(in: 100 ..< 1001)
-        randomNumC = Int.random(in: 100 ..< 1001)
+        randomNumA = Int.random(in: 10 ..< 100)
+        randomNumB = Int.random(in: 10 ..< 100)
+        randomNumC = Int.random(in: 10 ..< 100)
+        randomNumD = Int.random(in: 10 ..< 100)
         
-        questionLabel.text = "\(randomNumA) + \(randomNumB) + \(randomNumC)"
-        readMe(myText: "What is \(randomNumA) plus \(randomNumB) plus \(randomNumC)?")
+        questionLabel.text = "\(randomNumA) + \(randomNumB) + \(randomNumC) + \(randomNumD)"
+        readMe(myText: "What is \(randomNumA) plus \(randomNumB) plus \(randomNumC) plus \(randomNumD)?")
+        checkBtn.isEnabled = true
     }
     
     func checkAnswer(){
         answerUser = (answerTxt.text! as NSString).integerValue
-        answerCorrect = randomNumA + randomNumB + randomNumC
+        answerCorrect = randomNumA + randomNumB + randomNumC + randomNumD
         
         if answerCorrect == answerUser {
+            checkBtn.isEnabled = false
             correctAnswers += 1
             numberAttempts += 1
             updateProgress()
@@ -76,7 +81,6 @@ class ViewController: UIViewController {
                 //next problem
                 self.askQuestion()
                 self.answerTxt.text = ""
-                
             }
         }
         else{
