@@ -27,13 +27,14 @@ class ViewController: UIViewController {
     var answerCorrect : Int = 0
     var answerUser : Int = 0
     
+    var number1 = 0
+    var number2 = 0
     var smallNum = 0
-    var bigNumStarts = 0
-    var bigNum: Int = 0
-    var counter1:Int = 0
+    var bigNum = 0
+    
     var isShow: Bool = false
     
-    let congratulateArray = ["Great Job", "Excellent", "Way to go", "Alright", "Right on", "Correct", "Well done", "Awesome","Give me a high five"]
+    let congratulateArray = ["Great Job", "Excellent", "Way to go", "Alright", "Right on", "Correct", "Well done", "Awesome","Give me a high five","You are so smart!"]
     let retryArray = ["Try again","Oooops"]
     
     override func viewDidLoad() {
@@ -52,26 +53,38 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showAnswerBtn(_ sender: Any) {
-        findLCM()
+        findGCF()
         isShow = true
         answerTxt.text = String(answerCorrect)
     }
     
     func askQuestion(){
-        smallNum = Int.random(in: 3...55)
-        if isPrime(num: smallNum) == true {
-            smallNum += 1
+        number1 = Int.random(in: 12...80)
+        number2 = Int.random(in: 12...80)
+        
+        if number1 % 2 != 0 {
+            number1 = number1 + 1
         }
-        bigNumStarts = smallNum + 5
-        getBigNum()
-        questionLabel.text = "The LCM of \(smallNum) and \(bigNum) is"
+        if number1 % 2 == 0 && number2 % 2 != 0{
+            number2 = number2 + 5
+        }
+        
+        if number1 > number2 {
+            bigNum = number1
+            smallNum = number2
+        }
+        else {
+            smallNum = number1
+            bigNum = number2
+        }
+        
+        questionLabel.text = "The GCF of \(smallNum) and \(bigNum) is"
         checkBtn.isEnabled = true
     }
     
     func checkAnswer(){
         answerUser = (answerTxt.text! as NSString).integerValue
-        findLCM()
-        print(answerCorrect)
+        findGCF()
         
         if answerCorrect == answerUser {
             if isShow == false{
@@ -130,51 +143,14 @@ class ViewController: UIViewController {
         readMe(myText: retryArray[randomPick])
     }
     
-    func isPrime(num: Int) -> Bool {
-        if num < 2 {
-            return false
-        }
-        
-        for i in 2..<num {
-            if num % i == 0 {
-                return false
-            }
-        }
-        
-        return true
-    }
+
     
-    func getBigNum(){
-        var j: Int = bigNumStarts
-        var h: Int = bigNumStarts
-        
-        while(true){
-            
-            if counter1 > 5{
-                h += 1
-                j = h
-                counter1 = 0
-            }
-            
-            if j % smallNum == 0{
-                bigNum = h
+    func findGCF(){
+        for i in (1...smallNum).reversed(){
+            if(number1 % i==0 && number2 % i==0){
+                answerCorrect=i;
                 break;
             }
-            j = j + h
-            counter1 += 1
-            
-        }
-    }
-    
-    func findLCM(){
-        
-        var k:Int = bigNum*2;
-        while(true){
-            if(k % bigNum==0 && k % smallNum==0){
-                answerCorrect = k
-                break;
-            }
-            k=k+bigNum;
         }
     }
 }
