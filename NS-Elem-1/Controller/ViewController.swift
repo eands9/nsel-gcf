@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     }
     
     func askQuestion(){
-        smallNum = Int.random(in: 12...50)
+        smallNum = Int.random(in: 3...55)
         if isPrime(num: smallNum) == true {
             smallNum += 1
         }
