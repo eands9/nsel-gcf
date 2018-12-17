@@ -142,9 +142,7 @@ class ViewController: UIViewController {
         randomPick = Int(arc4random_uniform(2))
         readMe(myText: retryArray[randomPick])
     }
-    
 
-    
     func findGCF(){
         for i in (1...smallNum).reversed(){
             if(number1 % i==0 && number2 % i==0){
