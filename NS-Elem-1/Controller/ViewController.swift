@@ -23,18 +23,14 @@ class ViewController: UIViewController {
     var numberAttempts: Int = 0
     var timer = Timer()
     var counter = 0.0
-    
-    var randomNumA : Int = 0
-    var randomNumB : Int = 0
-    var randomNumC : Int = 0
-    var randomNumD : Int = 0
-    
-    var firstNum : Int = 0
-    var secondNum : Int = 0
-    var thirdNum : Int = 0
-    var questionTxt : String = ""
+
     var answerCorrect : Int = 0
     var answerUser : Int = 0
+    
+    var smallNum = 0
+    var bigNumStarts = 0
+    var bigNum: Int = 0
+    var counter1:Int = 0
     
     let congratulateArray = ["Great Job", "Excellent", "Way to go", "Alright", "Right on", "Correct", "Well done", "Awesome","Give me a high five"]
     let retryArray = ["Try again","Oooops"]
@@ -55,20 +51,20 @@ class ViewController: UIViewController {
     }
     
     func askQuestion(){
-        //3 digit questions starting at 100
-        randomNumA = Int.random(in: 10 ..< 100)
-        randomNumB = Int.random(in: 10 ..< 100)
-        randomNumC = Int.random(in: 10 ..< 100)
-        randomNumD = Int.random(in: 10 ..< 100)
-        
-        questionLabel.text = "\(randomNumA) + \(randomNumB) + \(randomNumC) + \(randomNumD)"
-        readMe(myText: "What is \(randomNumA) plus \(randomNumB) plus \(randomNumC) plus \(randomNumD)?")
+        smallNum = Int.random(in: 12...50)
+        if isPrime(num: smallNum) == true {
+            smallNum += 1
+        }
+        bigNumStarts = smallNum + 5
+        getBigNum()
+        questionLabel.text = "The LCM of \(smallNum) and \(bigNum) is"
         checkBtn.isEnabled = true
     }
     
     func checkAnswer(){
         answerUser = (answerTxt.text! as NSString).integerValue
-        answerCorrect = randomNumA + randomNumB + randomNumC + randomNumD
+        findLCM()
+        print(answerCorrect)
         
         if answerCorrect == answerUser {
             checkBtn.isEnabled = false
@@ -117,6 +113,54 @@ class ViewController: UIViewController {
     func randomTryAgain(){
         randomPick = Int(arc4random_uniform(2))
         readMe(myText: retryArray[randomPick])
+    }
+    
+    func isPrime(num: Int) -> Bool {
+        if num < 2 {
+            return false
+        }
+        
+        for i in 2..<num {
+            if num % i == 0 {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    func getBigNum(){
+        var j: Int = bigNumStarts
+        var h: Int = bigNumStarts
+        
+        while(true){
+            
+            if counter1 > 5{
+                h += 1
+                j = h
+                counter1 = 0
+            }
+            
+            if j % smallNum == 0{
+                bigNum = h
+                break;
+            }
+            j = j + h
+            counter1 += 1
+            
+        }
+    }
+    
+    func findLCM(){
+        
+        var k:Int = bigNum*2;
+        while(true){
+            if(k % bigNum==0 && k % smallNum==0){
+                answerCorrect = k
+                break;
+            }
+            k=k+bigNum;
+        }
     }
 }
 
