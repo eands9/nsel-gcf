@@ -80,12 +80,28 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnZ-5x-zZE">
+                                                <rect key="frame" x="232" y="191" width="71" height="30"/>
+                                                <color key="backgroundColor" red="1" green="0.26924691950000001" blue="0.25333741920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Xyr-it-HAd"/>
+                                                    <constraint firstAttribute="width" constant="71" id="mUH-Qg-lUd"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal" title="Show">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="showAnswerBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Hk-OM-uDz"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="x7X-eg-0tV" firstAttribute="leading" secondItem="M1Z-y1-xS5" secondAttribute="leading" id="A10-Mt-9cV"/>
                                             <constraint firstAttribute="trailing" secondItem="x7X-eg-0tV" secondAttribute="trailing" id="Bld-la-Ih5"/>
                                             <constraint firstAttribute="trailing" secondItem="th9-e1-kU2" secondAttribute="trailing" id="D2t-44-z03"/>
+                                            <constraint firstItem="MnZ-5x-zZE" firstAttribute="leading" secondItem="KYe-H6-QLi" secondAttribute="trailing" constant="3" id="HfH-Pj-Sdh"/>
                                             <constraint firstItem="KYe-H6-QLi" firstAttribute="top" secondItem="x7X-eg-0tV" secondAttribute="bottom" constant="25" id="Hus-AV-VJF"/>
                                             <constraint firstItem="fMU-de-pXf" firstAttribute="leading" secondItem="M1Z-y1-xS5" secondAttribute="leading" id="VRA-ej-ilL"/>
                                             <constraint firstAttribute="height" constant="264" id="VlG-HA-NjZ"/>
@@ -94,6 +110,7 @@
                                             <constraint firstItem="x7X-eg-0tV" firstAttribute="top" secondItem="M1Z-y1-xS5" secondAttribute="top" id="dAl-3M-r3u"/>
                                             <constraint firstAttribute="bottom" secondItem="oTe-Ik-8xI" secondAttribute="bottom" id="etN-Mg-1GS"/>
                                             <constraint firstAttribute="bottom" secondItem="th9-e1-kU2" secondAttribute="bottom" id="gOP-hB-ClB"/>
+                                            <constraint firstItem="MnZ-5x-zZE" firstAttribute="top" secondItem="x7X-eg-0tV" secondAttribute="bottom" constant="35" id="je4-Ux-NSh"/>
                                             <constraint firstAttribute="bottom" secondItem="fMU-de-pXf" secondAttribute="bottom" id="rKI-BD-haq"/>
                                             <constraint firstItem="oTe-Ik-8xI" firstAttribute="centerX" secondItem="M1Z-y1-xS5" secondAttribute="centerX" id="sPh-AR-05w"/>
                                             <constraint firstAttribute="bottom" secondItem="fMU-de-pXf" secondAttribute="bottom" id="tvm-ja-mbc"/>
@@ -128,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.78410794602701" y="132"/>
+            <point key="canvasLocation" x="130.40000000000001" y="131.78410794602701"/>
         </scene>
     </scenes>
 </document>

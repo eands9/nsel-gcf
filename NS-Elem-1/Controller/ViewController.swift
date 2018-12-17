@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     var bigNumStarts = 0
     var bigNum: Int = 0
     var counter1:Int = 0
+    var isShow: Bool = false
     
     let congratulateArray = ["Great Job", "Excellent", "Way to go", "Alright", "Right on", "Correct", "Well done", "Awesome","Give me a high five"]
     let retryArray = ["Try again","Oooops"]
@@ -50,6 +51,12 @@ class ViewController: UIViewController {
         checkAnswer()
     }
     
+    @IBAction func showAnswerBtn(_ sender: Any) {
+        findLCM()
+        isShow = true
+        answerTxt.text = String(answerCorrect)
+    }
+    
     func askQuestion(){
         smallNum = Int.random(in: 12...50)
         if isPrime(num: smallNum) == true {
@@ -67,11 +74,19 @@ class ViewController: UIViewController {
         print(answerCorrect)
         
         if answerCorrect == answerUser {
-            checkBtn.isEnabled = false
-            correctAnswers += 1
-            numberAttempts += 1
-            updateProgress()
-            randomPositiveFeedback()
+            if isShow == false{
+                correctAnswers += 1
+                numberAttempts += 1
+                updateProgress()
+                randomPositiveFeedback()
+            }
+            else{
+                numberAttempts += 1
+                updateProgress()
+                readMe(myText: "Next Question!")
+                isShow = false
+            }
+            
             let when = DispatchTime.now() + 2
             DispatchQueue.main.asyncAfter(deadline: when){
                 //next problem
