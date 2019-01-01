@@ -62,8 +62,8 @@ class ViewController: UIViewController {
 /* SOLUTION: Subtract two numbers = firstAnswer; firstAnswer is the highest GCF it could possibly be... and/or the lowest number of the two is lower than the firstAnswer
 Check if the ones of both numbers
 */
-        number1 = Int.random(in: 12...80)
-        number2 = Int.random(in: 12...80)
+        number1 = Int.random(in: 12...50)
+        number2 = Int.random(in: 12...50)
         
         if number1 % 2 != 0 {
             number1 = number1 + 1
